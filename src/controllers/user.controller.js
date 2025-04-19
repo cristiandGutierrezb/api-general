@@ -72,9 +72,19 @@ export const verifyUser = (req, res) => {
   `)
   .then((data) => {
     const infoUser = data[0]
+    const { id_user, fullname, user, email, state_id, profile_id } = infoUser[0]
+    const bodyToResponse = {
+      id_user,
+      fullname,
+      user,
+      email,
+      state_id,
+      profile_id
+    }
+
     if (infoUser.length) {
       res.json({
-        token: 'En construccion'
+        'infoUser': bodyToResponse
       })
     } else {
       errorHandler(res, 404, "Verifica los datos de ingreso.", e)
