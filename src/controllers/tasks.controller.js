@@ -3,7 +3,7 @@ import { pool } from "../libs/db.js";
 import { errorHandler } from "../helpers/errorHandler.js";
 
 export const getAll = (req, res) => {
-  pool.query('select * from task')
+  pool.query('select * from tasks')
   .then((data) => {
     const info = data[0]
     res.json({
